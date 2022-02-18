@@ -1,5 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import { ICommand } from "wokcommands";
+import { updateHours } from "../connectionFirebase";
 import { connectToGameCP, getMedics } from "../connectionGameCP";
 
 export default {
@@ -17,11 +18,13 @@ export default {
 		const token = args[2];
 
 		await connectToGameCP(username, password, token);
-		const number = await getMedics();
+		const allMedics = await getMedics();
 
 		const embed = new MessageEmbed()
 			.setTitle("Medic numbers")
-			.setDescription(`There are currently ${number.length} whitelisted medics`)
+			.setDescription(
+				`There are currently ${allMedics.length} whitelisted medics`
+			)
 			.setColor("GREEN");
 
 		return embed;
