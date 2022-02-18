@@ -11,9 +11,12 @@ export default {
 	maxArgs: 1,
 	expectedArgs: "[amount]",
 
-	callback: ({ message, interaction, channel, args }) => {
+	callback: async ({ interaction, channel, args }) => {
 		const amount = args.length ? parseInt(args.shift()!) : 10;
-
-		return "clear messages";
+		const { size } = await channel.bulkDelete(amount, true);
+		const response = interaction.reply({
+			content: `${size} message(s) were deleted`,
+			ephemeral: true,
+		});
 	},
 } as ICommand;
