@@ -20,7 +20,10 @@ client.on("ready", () => {
 		commandsDir: path.join(__dirname, "commands"),
 		typeScript: true,
 		testServers: ["938213449161388122"],
-	});
+	}).setCategorySettings([
+		{ name: "Management", emoji: "👔", hidden: true },
+		{ name: "Utils", emoji: "⚙️" },
+	]);
 });
 
 client.login(process.env.TOKEN);
