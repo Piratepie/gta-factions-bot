@@ -1,8 +1,8 @@
 import { ICommand } from "wokcommands";
 
 export default {
-	category: "testing",
-	description: "Pong!",
+	category: "Management",
+	description: "Updates hours for a given faction!",
 	slash: true,
 	testOnly: true,
 

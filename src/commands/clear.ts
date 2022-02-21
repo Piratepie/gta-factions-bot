@@ -1,7 +1,7 @@
 import { ICommand } from "wokcommands";
 
 export default {
-	category: "chat",
+	category: "Management",
 	description: "Clears x amount of messages",
 	slash: true,
 	testOnly: true,
