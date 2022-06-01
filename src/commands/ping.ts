@@ -4,7 +4,7 @@ export default {
 	category: "Management",
 	description: "Updates hours for a given faction!",
 	slash: true,
-	testOnly: true,
+	testOnly: false,
 
 	callback: ({ interaction }) => {
 		return "pong";

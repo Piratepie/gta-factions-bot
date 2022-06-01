@@ -4,7 +4,7 @@ export default {
 	category: "Management",
 	description: "Clears x amount of messages",
 	slash: true,
-	testOnly: true,
+	testOnly: false,
 
 	permissions: ["ADMINISTRATOR"],
 

@@ -14,9 +14,9 @@ export default {
 	category: "Management",
 	description: "Updates hours for all factions!",
 	slash: true,
-	testOnly: true,
+	testOnly: false,
 	guildOnly: true,
-	// globalCooldown: "30m",
+	globalCooldown: "30m",
 
 	callback: async ({ interaction, guild }) => {
 		let member = guild!.members.cache.get(interaction.user.id);
@@ -119,7 +119,7 @@ export default {
 			};
 
 			await new PlayerData(activitySlim).save();
-			await new Promise((resolve) => setTimeout(resolve, 1000));
+			await new Promise((resolve) => setTimeout(resolve, 600));
 		}
 	},
 } as ICommand;
