@@ -134,8 +134,6 @@ export default {
 				minutesCtrg: activity.total.CTRG,
 			};
 
-			console.log(activitySlim);
-
 			await new PlayerData(activitySlim).save();
 			await new Promise((resolve) => setTimeout(resolve, 1000));
 		}

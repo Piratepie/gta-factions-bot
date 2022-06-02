@@ -34,8 +34,6 @@ export default {
 		const steamID = args[0];
 		const activity = await getActivity(steamID);
 
-		console.log(activity);
-
 		const activitySlim = {
 			minutesRebel: 0,
 			minutesPolice: 0,
