@@ -7,6 +7,7 @@ import {
 	getMedics,
 	getPolice,
 	getActivity,
+	getCtrg,
 } from "../connectionGameCP";
 import PlayerData from "../player-schema";
 
@@ -14,9 +15,9 @@ export default {
 	category: "Management",
 	description: "Updates hours for all factions!",
 	slash: true,
-	testOnly: false,
+	testOnly: true,
 	guildOnly: true,
-	globalCooldown: "30m",
+	// globalCooldown: "30m",
 
 	callback: async ({ interaction, guild }) => {
 		let member = guild!.members.cache.get(interaction.user.id);
@@ -76,8 +77,22 @@ export default {
 			rank: string;
 		}[] = await getHato();
 
+		const allCtrg: {
+			uid: string;
+			name: string;
+			last_logout: string;
+			join_date: string;
+			permission: string;
+			admin_level: string;
+			permission_level: number;
+			rank: string;
+		}[] = await getCtrg();
+
 		const allSteam: string[] = [];
 
+		for (const ctrg of allCtrg) {
+			allSteam.indexOf(ctrg.uid) === -1 ? allSteam.push(ctrg.uid) : null;
+		}
 		for (const officer of allPolice) {
 			allSteam.indexOf(officer.uid) === -1 ? allSteam.push(officer.uid) : null;
 		}
@@ -116,10 +131,13 @@ export default {
 				minutesAPC: activity.total.Police,
 				minutesNHS: activity.total.NHS,
 				minutesHato: activity.total.HATO,
+				minutesCtrg: activity.total.CTRG,
 			};
 
+			console.log(activitySlim);
+
 			await new PlayerData(activitySlim).save();
-			await new Promise((resolve) => setTimeout(resolve, 600));
+			await new Promise((resolve) => setTimeout(resolve, 1000));
 		}
 	},
 } as ICommand;

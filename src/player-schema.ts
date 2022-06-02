@@ -22,6 +22,10 @@ const schema = new Schema({
 		type: Number,
 		required: true,
 	},
+	minutesCtrg: {
+		type: Number,
+		required: true,
+	},
 });
 
 export default mongoose.model("PlayerData", schema, "PlayerData");
