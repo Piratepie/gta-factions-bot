@@ -15,7 +15,7 @@ export default {
 	category: "Management",
 	description: "Updates hours for all factions!",
 	slash: true,
-	testOnly: true,
+	testOnly: false,
 	guildOnly: true,
 	// globalCooldown: "30m",
 
