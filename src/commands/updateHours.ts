@@ -137,7 +137,7 @@ export default {
 			console.log(activitySlim);
 
 			await new PlayerData(activitySlim).save();
-			await new Promise((resolve) => setTimeout(resolve, 1000));
+			await new Promise((resolve) => setTimeout(resolve, 1200));
 		}
 	},
 } as ICommand;
