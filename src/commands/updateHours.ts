@@ -17,7 +17,7 @@ export default {
 	slash: true,
 	testOnly: false,
 	guildOnly: true,
-	// globalCooldown: "30m",
+	globalCooldown: "30m",
 
 	callback: async ({ interaction, guild }) => {
 		let member = guild!.members.cache.get(interaction.user.id);
