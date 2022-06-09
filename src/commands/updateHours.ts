@@ -124,7 +124,21 @@ export default {
 			interaction.editReply({
 				embeds: [embed],
 			});
-			const activity = await getActivity(allSteam[i]);
+			let activity;
+			try {
+				activity = await getActivity(allSteam[i]);
+			} catch (e) {
+				const embedError = new MessageEmbed()
+					.setColor("#CD201F")
+					.setTitle("Error")
+					.setDescription(
+						"Error 002: GameCP flood protection, please try again in 5 minutes."
+					);
+				interaction.editReply({
+					embeds: [embedError],
+				});
+				return;
+			}
 			const activitySlim = {
 				uid: allSteam[i],
 				minutesRebel: activity.total.CIV,
@@ -133,8 +147,6 @@ export default {
 				minutesHato: activity.total.HATO,
 				minutesCtrg: activity.total.CTRG,
 			};
-
-			console.log(activitySlim);
 
 			await new PlayerData(activitySlim).save();
 			await new Promise((resolve) => setTimeout(resolve, 1200));
