@@ -8,6 +8,6 @@ export default {
   cooldown: "1m",
 
   callback: async () => {
-    return 'https://cdn.discordapp.com/attachments/580833263438921728/1013909351859245127/RTO_WORK_TO_DO.mp4';
+    return '<@&415908083630342156> https://cdn.discordapp.com/attachments/580833263438921728/1013909351859245127/RTO_WORK_TO_DO.mp4';
   },
 } as ICommand;
