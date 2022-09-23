@@ -19,7 +19,7 @@ client.on("ready", () => {
 	new WOKCommands(client, {
 		commandsDir: path.join(__dirname, "commands"),
 		typeScript: true,
-		testServers: "938213449161388122",
+		testServers: "",
 		botOwners: ["90824609535889408"],
 		mongoUri: process.env.MONGO_URI,
 	}).setCategorySettings([
